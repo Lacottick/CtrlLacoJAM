@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bywqjjcxyb4to"]
+
+[ext_resource type="Texture2D" uid="uid://b8ixvm8linqsu" path="res://assets/logos_jam/logo .png" id="1_8cml4"]
+[ext_resource type="Script" uid="uid://bg2udqudw0lag" path="res://scenes/loading_screen/loading_screen.gd" id="1_a8kcw"]
+
+[node name="LoadingScreen" type="Node2D" unique_id=1494383947]
+script = ExtResource("1_a8kcw")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=892070876]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 360.0
+offset_top = 650.0
+offset_right = 883.0
+offset_bottom = 677.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2023912204]
+position = Vector2(640, 360)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_8cml4")
