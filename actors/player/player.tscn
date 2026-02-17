@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://st4h1i4ffas4"]
 
-[ext_resource type="Script" uid="uid://dw1qurim6po7r" path="res://actors/player.gd" id="1_niuxy"]
+[ext_resource type="Script" uid="uid://dw1qurim6po7r" path="res://actors/player/player.gd" id="1_niuxy"]
 [ext_resource type="Script" uid="uid://dc4ufxni2j3t3" path="res://controllers/movement_controller.gd" id="2_esgq3"]
 [ext_resource type="Script" uid="uid://bpo0oc0hptwk5" path="res://controllers/input_controller.gd" id="3_kjkj0"]
 [ext_resource type="Script" uid="uid://bam6m8wlayrl" path="res://controllers/animation_controller.gd" id="4_tue77"]
@@ -23,6 +23,37 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_33vod"]
+resource_name = "base_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.4435493, 0, 0.009056306, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_er1rk"]
+resource_name = "dead"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0.03529412, 1), Color(0.24705882, 0.9254902, 0, 1), Color(1, 1, 0.023529412, 1), Color(0.1254902, 0, 1, 1), Color(0.09338569, 0.10454955, 0.10901394, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mvpqy"]
@@ -108,6 +139,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_33vod"]
 _data = {
 &"RESET": SubResource("Animation_niuxy"),
+&"base_attack": SubResource("Animation_33vod"),
+&"dead": SubResource("Animation_er1rk"),
 &"down": SubResource("Animation_mvpqy"),
 &"idle": SubResource("Animation_1yqc4"),
 &"left": SubResource("Animation_esgq3"),
