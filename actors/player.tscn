@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://st4h1i4ffas4"]
 
 [ext_resource type="Script" uid="uid://dw1qurim6po7r" path="res://actors/player.gd" id="1_niuxy"]
+[ext_resource type="Script" uid="uid://dc4ufxni2j3t3" path="res://controllers/movement_controller.gd" id="2_esgq3"]
+[ext_resource type="Script" uid="uid://bpo0oc0hptwk5" path="res://controllers/input_controller.gd" id="3_kjkj0"]
+[ext_resource type="Script" uid="uid://bam6m8wlayrl" path="res://controllers/animation_controller.gd" id="4_tue77"]
+[ext_resource type="Script" uid="uid://ded1ed7hmw2h0" path="res://controllers/stats_controller.gd" id="5_kjkj0"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cp522"]
 
@@ -125,3 +129,20 @@ shape = SubResource("RectangleShape2D_niuxy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1823954610]
 libraries/ = SubResource("AnimationLibrary_33vod")
+
+[node name="MovementController" type="Node" parent="." unique_id=2015551705]
+script = ExtResource("2_esgq3")
+metadata/_custom_type_script = "uid://dc4ufxni2j3t3"
+
+[node name="InputController" type="Node" parent="." unique_id=571808249]
+script = ExtResource("3_kjkj0")
+metadata/_custom_type_script = "uid://bpo0oc0hptwk5"
+
+[node name="AnimationController" type="Node" parent="." unique_id=1597031475]
+script = ExtResource("4_tue77")
+animation_player_path = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://bam6m8wlayrl"
+
+[node name="StatsController" type="Node" parent="." unique_id=349769875]
+script = ExtResource("5_kjkj0")
+metadata/_custom_type_script = "uid://ded1ed7hmw2h0"
