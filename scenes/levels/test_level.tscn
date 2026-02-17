@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d0wf4frm3oedt"]
+
+[ext_resource type="Texture2D" uid="uid://chxq6kg1aslkb" path="res://assets/Space_background.png" id="1_alwyk"]
+[ext_resource type="PackedScene" uid="uid://st4h1i4ffas4" path="res://actors/player.tscn" id="2_62xr1"]
+[ext_resource type="PackedScene" uid="uid://br50at6rbv0ou" path="res://scenes/level_door/door.tscn" id="3_vxsof"]
+
+[node name="TestLevel" type="Node2D" unique_id=770727597]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=855255408]
+texture_filter = 1
+position = Vector2(641.49994, 359.99997)
+scale = Vector2(3.5694442, 1.9999999)
+texture = ExtResource("1_alwyk")
+
+[node name="CharacterBody2D" parent="." unique_id=1540911931 instance=ExtResource("2_62xr1")]
+position = Vector2(410, 371)
+
+[node name="Door" parent="." unique_id=73564260 instance=ExtResource("3_vxsof")]
+position = Vector2(91, 18)

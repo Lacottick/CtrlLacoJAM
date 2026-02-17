@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cj3573nfgkl7k"]
+
+[ext_resource type="PackedScene" uid="uid://st4h1i4ffas4" path="res://actors/player.tscn" id="1_xxvh4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r8pi6"]
+
+[node name="SecondLevel" type="Node2D" unique_id=317540291]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=811479534]
+modulate = Color(0.09019608, 1, 1, 1)
+position = Vector2(639.25, 360.75)
+scale = Vector2(1279.5, 722.5)
+texture = SubResource("CanvasTexture_r8pi6")
+
+[node name="CharacterBody2D" parent="." unique_id=1540911931 instance=ExtResource("1_xxvh4")]
+position = Vector2(24, 315)

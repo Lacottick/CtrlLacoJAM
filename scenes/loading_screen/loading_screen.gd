@@ -3,7 +3,7 @@ extends Node2D
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-@export var next_scene_path: String = "res://scenes/test_level/test_level.tscn"
+@export var next_scene_path: String = "res://scenes/levels/test_level.tscn"
 
 var progress: Array[float] = []
 

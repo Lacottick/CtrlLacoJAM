@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://br50at6rbv0ou"]
+
+[ext_resource type="Script" uid="uid://bv8gf1sspg3td" path="res://scenes/level_door/door.gd" id="1_0jjss"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o6v5j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jjss"]
+size = Vector2(39, 38)
+
+[node name="Door" type="Area2D" unique_id=652754548]
+script = ExtResource("1_0jjss")
+travel_scene_path = "uid://cj3573nfgkl7k"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1800604934]
+modulate = Color(0.2813529, 0.17186773, 0.08868671, 1)
+scale = Vector2(38, 38)
+texture = SubResource("CanvasTexture_o6v5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1688518250]
+shape = SubResource("RectangleShape2D_0jjss")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
