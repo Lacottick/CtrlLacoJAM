@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bpo0oc0hptwk5" path="res://controllers/input_controller.gd" id="3_kjkj0"]
 [ext_resource type="Script" uid="uid://bam6m8wlayrl" path="res://controllers/animation_controller.gd" id="4_tue77"]
 [ext_resource type="Script" uid="uid://ded1ed7hmw2h0" path="res://controllers/stats_controller.gd" id="5_kjkj0"]
+[ext_resource type="Script" uid="uid://clk34hyx5nmkm" path="res://controllers/hitbox_controller.gd" id="6_15y17"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cp522"]
 
@@ -148,6 +149,8 @@ _data = {
 &"up": SubResource("Animation_tue77")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15y17"]
+
 [node name="BaseCharacter" type="CharacterBody2D" unique_id=1540911931]
 motion_mode = 1
 script = ExtResource("1_niuxy")
@@ -159,6 +162,7 @@ texture = SubResource("CanvasTexture_cp522")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=165994675]
 shape = SubResource("RectangleShape2D_niuxy")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1823954610]
 libraries/ = SubResource("AnimationLibrary_33vod")
@@ -179,3 +183,12 @@ metadata/_custom_type_script = "uid://bam6m8wlayrl"
 [node name="StatsController" type="Node" parent="." unique_id=349769875]
 script = ExtResource("5_kjkj0")
 metadata/_custom_type_script = "uid://ded1ed7hmw2h0"
+
+[node name="HitboxController" type="Area2D" parent="." unique_id=1993264944]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("6_15y17")
+metadata/_custom_type_script = "uid://clk34hyx5nmkm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxController" unique_id=1364542366]
+shape = SubResource("RectangleShape2D_15y17")
