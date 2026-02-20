@@ -5,15 +5,32 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var attack_timer: Timer = $AttackTimer
 
-func _physics_process(_delta: float) -> void:
-	if animation_player.animation_finished:
+var target_hitbox: HitboxController = null
+
+func _ready() -> void:
+	animation_player.animation_finished.connect(_on_animation_finished)
+	attack_timer.start()
+
+func _on_animation_finished(anim_name: String) -> void:
+	if anim_name == "attack":
 		attack_timer.start()
 
-func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		var target_id = body.get_instance_id()
-		CharacterEventBus.take_damage.emit(target_id, damage_amount)
-		print("Enviando ", damage_amount, " de dano para o ID: ", target_id)
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	if area is HitboxController:
+		target_hitbox = area
+
+func _on_attack_area_area_exited(area: Area2D) -> void:
+	if area == target_hitbox:
+		target_hitbox = null
+		print("Alvo saiu da área.")
 
 func _on_attack_timer_timeout() -> void:
-	animation_player.play("attack")
+	if target_hitbox:
+		animation_player.play("attack")
+		target_hitbox.take_damage(damage_amount) 
+		print("Dano: ", damage_amount, " enviado para: ", target_hitbox.get_parent().name)
+	else:
+		attack_timer.start()
+
+func get_damage() -> float:
+	return damage_amount

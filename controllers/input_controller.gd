@@ -27,3 +27,6 @@ func _process(_delta: float) -> void:
 
 func input_lock() -> void:
 	is_locked = true
+
+func input_unlock() -> void:
+	is_locked = false
