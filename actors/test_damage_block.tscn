@@ -13,7 +13,7 @@ radius = 20.024984
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -71,11 +71,13 @@ _data = {
 }
 
 [node name="TestDamageBlock" type="CharacterBody2D" unique_id=1893614590]
+modulate = Color(1, 0.21267998, 0.15969571, 1)
 script = ExtResource("1_lbkhi")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=369314952]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1376933616]
+visible = false
 shape = SubResource("CircleShape2D_uqmad")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1874534662]
@@ -84,6 +86,7 @@ scale = Vector2(20, 20)
 texture = SubResource("CanvasTexture_lbkhi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=776952994]
+visible = false
 shape = SubResource("RectangleShape2D_qp3hu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=13040779]

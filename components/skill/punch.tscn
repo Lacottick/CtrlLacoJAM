@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dhbm3j24jwl0t"]
+
+[ext_resource type="Script" uid="uid://b28il7jsx2bxg" path="res://components/skill/punch.gd" id="1_d8tsa"]
+[ext_resource type="Script" uid="uid://uu0ji8xr74ba" path="res://resources/skill_data.gd" id="2_ikk86"]
+
+[sub_resource type="Resource" id="Resource_6mtif"]
+script = ExtResource("2_ikk86")
+name = &"punch"
+input = &"base_attack"
+damage = 30.0
+speed = 1.1
+metadata/_custom_type_script = "uid://uu0ji8xr74ba"
+
+[node name="Punch" type="Node2D" unique_id=1041656242]
+script = ExtResource("1_d8tsa")
+data = SubResource("Resource_6mtif")

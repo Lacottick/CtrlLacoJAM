@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d1hiai13mkdgm"]
+
+[ext_resource type="Script" uid="uid://ce2f02g80r4ek" path="res://components/weapon/hand.gd" id="1_mh8p8"]
+
+[node name="Hand" type="Node2D" unique_id=309820192]
+script = ExtResource("1_mh8p8")
