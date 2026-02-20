@@ -24,5 +24,4 @@ func on_hitbox_damaged(amount: float) -> void:
 	stats.take_damage(stats.character_id, amount)
 
 func on_entity_died() -> void:
-	input.input_lock()
 	animation.death_animation(character_id)

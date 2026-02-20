@@ -4,9 +4,6 @@ class_name SkillData extends Resource
 var name: StringName
 
 @export
-var input: StringName
-
-@export
 var damage: float
 
 @export_range(0.1, 5.0, 0.5)

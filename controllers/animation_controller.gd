@@ -17,20 +17,17 @@ func _ready() -> void:
 func update_animation(direction: Vector2) -> void:
 	if !animation_player: return
 	
-	if direction == Vector2.ZERO:
-		if animation_player.has_animation("idle"):
+	if direction == Vector2.ZERO and animation_player.has_animation("idle"):
 			animation_player.play("idle")
 	else:
-		if abs(direction.x) > abs(direction.y):
-			if direction.x > 0:
-				animation_player.play("right")
-			else:
-				animation_player.play("left")
+		var animation_name = ""
+		if direction.y < 0:
+			animation_name += "up_"
+		if direction.x > 0:
+			animation_name += "right"
 		else:
-			if direction.y > 0:
-				animation_player.play("down")
-			else:
-				animation_player.play("up")
+			animation_name += "left"
+		animation_player.play(animation_name)
 
 func death_animation(target_id: int) -> void:
 	if target_id == character_id:

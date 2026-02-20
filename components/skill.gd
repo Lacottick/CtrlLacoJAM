@@ -2,3 +2,6 @@
 
 @export
 var data: SkillData
+
+
+func handle()->void:pass

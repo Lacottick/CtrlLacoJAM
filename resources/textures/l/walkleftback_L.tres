@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c1lndf7gdlm26" path="res://assets/walkright_back_L.png" id="1_rg8h5"]
 [ext_resource type="Texture2D" uid="uid://c4hwxcs43igst" path="res://assets/walkright_back_L_n.png" id="2_yevrb"]
-[ext_resource type="Texture2D" uid="uid://djlatb75mlmh6" path="res://assets/walkright_back_L_s.png" id="3_c4kte"]
 
 [resource]
 diffuse_texture = ExtResource("1_rg8h5")
 normal_texture = ExtResource("2_yevrb")
-specular_texture = ExtResource("3_c4kte")
