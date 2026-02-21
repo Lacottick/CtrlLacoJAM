@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://d0wf4frm3oedt"]
 
 [ext_resource type="Texture2D" uid="uid://chxq6kg1aslkb" path="res://assets/Space_background.png" id="1_alwyk"]
-[ext_resource type="PackedScene" uid="uid://dvwk1caprls4l" path="res://actors/test_damage_block.tscn" id="1_v45ci"]
-[ext_resource type="Texture2D" uid="uid://cwcq6mhqfsx4u" path="res://assets/light.png" id="2_6xh4u"]
 [ext_resource type="PackedScene" uid="uid://st4h1i4ffas4" path="res://actors/player/player.tscn" id="3_fr1um"]
 [ext_resource type="PackedScene" uid="uid://br50at6rbv0ou" path="res://scenes/level_door/door.tscn" id="3_vxsof"]
+[ext_resource type="PackedScene" uid="uid://biyf886cs63in" path="res://actors/enemy/base_enemy.tscn" id="6_6xh4u"]
 
 [node name="TestLevel" type="Node2D" unique_id=770727597]
 
@@ -14,22 +13,11 @@ position = Vector2(641.49994, 359.99997)
 scale = Vector2(3.5694442, 1.9999999)
 texture = ExtResource("1_alwyk")
 
-[node name="TestDamageBlock" parent="." unique_id=1893614590 instance=ExtResource("1_v45ci")]
-position = Vector2(562, 255)
-
-[node name="PointLight2D" type="PointLight2D" parent="TestDamageBlock" unique_id=1677219917]
-color = Color(1, 0, 0, 1)
-energy = 2.45
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.6862745)
-texture = ExtResource("2_6xh4u")
-height = 40.0
-
 [node name="Door" parent="." unique_id=73564260 instance=ExtResource("3_vxsof")]
 position = Vector2(91, 18)
 
 [node name="BaseCharacter" parent="." unique_id=1540911931 instance=ExtResource("3_fr1um")]
-position = Vector2(417, 394)
+position = Vector2(373, 558)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=493028597]
 color = Color(0.4262003, 0.31027228, 0.107836254, 1)
@@ -38,3 +26,6 @@ blend_mode = 1
 shadow_enabled = true
 shadow_color = Color(4.813075e-08, 0.10421535, 0.12869826, 1)
 height = 1.0
+
+[node name="BaseEnemy" parent="." unique_id=1379502764 instance=ExtResource("6_6xh4u")]
+position = Vector2(772, 462)

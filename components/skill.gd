@@ -3,5 +3,7 @@
 @export
 var data: SkillData
 
+var target_hitbox: HitboxController = null
 
-func handle()->void:pass
+
+func handle() -> void: pass

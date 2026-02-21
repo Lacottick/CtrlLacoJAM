@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://4t2ffm466qis"]
+
+[ext_resource type="Script" uid="uid://bt7mgwuxx63e3" path="res://components/weapon/lightsaber/lightsaber.gd" id="1_ppalo"]
+[ext_resource type="PackedScene" uid="uid://bwxhebkgi6dm5" path="res://components/skill/slash.tscn" id="2_ahstc"]
+[ext_resource type="PackedScene" uid="uid://cbvmrx1k0epvt" path="res://components/skill/light_beam.tscn" id="3_mppug"]
+
+[node name="Lightsaber" type="Node2D" unique_id=321760432 node_paths=PackedStringArray("actions_by_input")]
+script = ExtResource("1_ppalo")
+actions_by_input = {
+"attack": NodePath("Slash"),
+"special": NodePath("LightBeam")
+}
+
+[node name="Slash" parent="." unique_id=310959819 instance=ExtResource("2_ahstc")]
+
+[node name="LightBeam" parent="." unique_id=1673330809 instance=ExtResource("3_mppug")]

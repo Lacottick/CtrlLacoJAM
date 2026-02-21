@@ -6,11 +6,27 @@
 [sub_resource type="Resource" id="Resource_6mtif"]
 script = ExtResource("2_ikk86")
 name = &"punch"
-input = &"base_attack"
-damage = 30.0
+damage = 15.0
 speed = 1.1
 metadata/_custom_type_script = "uid://uu0ji8xr74ba"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ikk86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikk86"]
+size = Vector2(26, 12)
 
 [node name="Punch" type="Node2D" unique_id=1041656242]
 script = ExtResource("1_d8tsa")
 data = SubResource("Resource_6mtif")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=728641355]
+scale = Vector2(26.000002, 12.5)
+texture = SubResource("CanvasTexture_ikk86")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=752675633]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1414792025]
+shape = SubResource("RectangleShape2D_ikk86")
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_area_exited"]

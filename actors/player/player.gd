@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animation: AnimationController = $AnimationController
 @onready var hitbox: HitboxController = $HitboxController
 @onready var stats: StatsController = $StatsController
+@onready var weapon: WeaponController = $WeaponController
 
 @export var character_id: int
 
@@ -17,8 +18,11 @@ func _ready():
 	stats.character_dead.connect(on_entity_died)
 
 func on_action(action: String):
-	if action == "attack":
-		pass
+	if action == "attack" or action == "special":
+		weapon.handle_attack(action)
+	
+	if action == "switch_weapon": 
+		weapon.switch_weapon()
 
 func on_hitbox_damaged(amount: float) -> void:
 	stats.take_damage(stats.character_id, amount)

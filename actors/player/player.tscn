@@ -9,11 +9,14 @@
 [ext_resource type="Script" uid="uid://bam6m8wlayrl" path="res://controllers/animation_controller.gd" id="4_tue77"]
 [ext_resource type="Texture2D" uid="uid://42smiy0mje3g" path="res://resources/textures/l/walkleftback_L.tres" id="5_hiosj"]
 [ext_resource type="Script" uid="uid://ded1ed7hmw2h0" path="res://controllers/stats_controller.gd" id="5_kjkj0"]
-[ext_resource type="Script" path="res://controllers/hitbox_controller.gd" id="6_15y17"]
+[ext_resource type="Script" uid="uid://clk34hyx5nmkm" path="res://controllers/hitbox_controller.gd" id="6_15y17"]
 [ext_resource type="Texture2D" uid="uid://oqurln28ywpr" path="res://resources/textures/l/walkleft_L.tres" id="6_lsln6"]
+[ext_resource type="Script" uid="uid://cwlnaspg8jrfu" path="res://controllers/weapon_controller.gd" id="12_7aotg"]
+[ext_resource type="PackedScene" uid="uid://d1hiai13mkdgm" path="res://components/weapon/hand/hand.tscn" id="13_k67x5"]
+[ext_resource type="PackedScene" uid="uid://4t2ffm466qis" path="res://components/weapon/lightsaber/lightsaber.tscn" id="14_k67x5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_niuxy"]
-size = Vector2(128, 256)
+size = Vector2(110, 256)
 
 [sub_resource type="Animation" id="Animation_niuxy"]
 length = 0.001
@@ -596,6 +599,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15y17"]
+size = Vector2(110, 254)
 
 [node name="BaseCharacter" type="CharacterBody2D" unique_id=1540911931]
 scale = Vector2(0.5, 0.5)
@@ -604,16 +608,15 @@ script = ExtResource("1_niuxy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=721741882]
 texture_filter = 2
-position = Vector2(-2.3841858e-07, 1.1920929e-07)
+position = Vector2(-2.3841858e-07, -128)
 texture = ExtResource("2_15y17")
 flip_h = true
 hframes = 5
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=165994675]
-visible = false
+position = Vector2(1, -128)
 shape = SubResource("RectangleShape2D_niuxy")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1823954610]
 libraries/ = SubResource("AnimationLibrary_33vod")
@@ -636,9 +639,27 @@ script = ExtResource("5_kjkj0")
 metadata/_custom_type_script = "uid://ded1ed7hmw2h0"
 
 [node name="HitboxController" type="Area2D" parent="." unique_id=1993264944]
+position = Vector2(0, -126)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("6_15y17")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxController" unique_id=1364542366]
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_15y17")
+
+[node name="WeaponController" type="Node" parent="." unique_id=1935004389]
+script = ExtResource("12_7aotg")
+metadata/_custom_type_script = "uid://cwlnaspg8jrfu"
+
+[node name="Hand" parent="WeaponController" unique_id=309820192 node_paths=PackedStringArray("actions_by_input") instance=ExtResource("13_k67x5")]
+actions_by_input = {
+"attack": NodePath("Punch")
+}
+
+[node name="Lightsaber" parent="WeaponController" unique_id=321760432 node_paths=PackedStringArray("actions_by_input") instance=ExtResource("14_k67x5")]
+position = Vector2(38, -72)
+actions_by_input = {
+"attack": NodePath("Slash"),
+"special": NodePath("LightBeam")
+}

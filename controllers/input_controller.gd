@@ -24,6 +24,12 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack"):
 		action_performed.emit("attack")
+	
+	if Input.is_action_just_pressed("special"):
+		action_performed.emit("special")
+	
+	if Input.is_action_just_pressed("switch_weapon"):
+		action_performed.emit("switch_weapon")
 
 func input_lock() -> void:
 	is_locked = true
