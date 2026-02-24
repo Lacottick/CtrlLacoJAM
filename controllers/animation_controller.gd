@@ -14,6 +14,10 @@ func _ready() -> void:
 		animation_player = get_parent().get_node_or_null("AnimationPlayer")
 	CharacterEventBus.character_dead.connect(death_animation)
 
+
+func play(anim_name: StringName) -> void:
+	animation_player.play(anim_name)
+
 func update_animation(direction: Vector2) -> void:
 	if !animation_player: return
 	

@@ -19,8 +19,8 @@ func _ready():
 
 func on_action(action: String):
 	if action == "attack" or action == "special":
-		weapon.handle_attack(action)
-	
+		var used_skill = weapon.handle_attack(action)
+		animation.play(used_skill)
 	if action == "switch_weapon": 
 		weapon.switch_weapon()
 

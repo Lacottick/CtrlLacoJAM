@@ -18,6 +18,7 @@ func switch_weapon() -> void:
 	weapon_index = (weapon_index + 1) % get_child_count()
 	update_active_weapon()
 
-func handle_attack(action: String) -> void:
+func handle_attack(action: String) -> String:
 	if current_weapon:
-		current_weapon.execute_attack(action)
+		return current_weapon.execute_attack(action)
+	return ""

@@ -6,7 +6,6 @@ extends Skill
 func handle() -> void:
 	if target_hitbox:
 		target_hitbox.take_damage(data.damage)
-	print("soquinho")
 
 
 func _on_attack_area_area_entered(area: Area2D) -> void:
