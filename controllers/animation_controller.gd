@@ -1,6 +1,8 @@
 class_name AnimationController extends Node
 
-@export var animation_player_path: NodePath
+@onready var animation_tree: AnimationTree = $"../AnimationTree"
+@onready var move_state_machine = animation_tree.get("parameters/MoveStateMachine/playback")
+@onready var attack_state_machine = animation_tree.get("parameters/AttackStateMachine/playback")
 
 var character_id: int
 var is_dead: bool = false
@@ -8,30 +10,35 @@ var animation_player: AnimationPlayer
 
 func _ready() -> void:
 	character_id = get_parent().get_instance_id()
-	if animation_player_path:
-		animation_player = get_node(animation_player_path)
-	else:
-		animation_player = get_parent().get_node_or_null("AnimationPlayer")
+	animation_tree.active = true
 	CharacterEventBus.character_dead.connect(death_animation)
 
 
-func play(anim_name: StringName) -> void:
-	animation_player.play(anim_name)
-
 func update_animation(direction: Vector2) -> void:
-	if !animation_player: return
-	
-	if direction == Vector2.ZERO and animation_player.has_animation("idle"):
-			animation_player.play("idle")
+	if direction == Vector2.ZERO:
+		set_move_state("idle")
 	else:
-		var animation_name = ""
-		if direction.y < 0:
-			animation_name += "up_"
-		if direction.x > 0:
-			animation_name += "right"
-		else:
-			animation_name += "left"
-		animation_player.play(animation_name)
+		var state_name = get_direction_string(direction)
+		set_move_state(state_name)
+
+func get_direction_string(direction: Vector2) -> String:
+	var dir_name = ""
+	if direction.y < 0: dir_name += "up"
+	elif direction.y > 0: dir_name += "down"
+	
+	if direction.x > 0: dir_name += "right"
+	elif direction.x < 0: dir_name += "left"
+	
+	return dir_name
+
+func set_move_state(state_name: String) -> void:
+	move_state_machine.travel(state_name)
+
+func play_attack(skill_name: String) -> void:
+	if attack_state_machine:
+		attack_state_machine.travel(skill_name)
+	
+	animation_tree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 func death_animation(target_id: int) -> void:
 	if target_id == character_id:

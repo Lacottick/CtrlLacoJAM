@@ -6,21 +6,21 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_nbmsi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eh7bc"]
-size = Vector2(140, 336)
+size = Vector2(140, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yj5u"]
-size = Vector2(140, 336)
+size = Vector2(140, 207)
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1379502764]
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1559259046]
 modulate = Color(0.7210613, 0.017191716, 5.7756904e-07, 1)
-position = Vector2(7.6293945e-06, -167.75002)
-scale = Vector2(140.00002, 336.5)
+position = Vector2(7.6293945e-06, -103.25)
+scale = Vector2(140.00002, 207.49998)
 texture = SubResource("CanvasTexture_nbmsi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1059286193]
-position = Vector2(0, -168)
+position = Vector2(0, -104)
 shape = SubResource("RectangleShape2D_eh7bc")
 
 [node name="HitboxController" type="Area2D" parent="." unique_id=1011449356]
@@ -28,7 +28,7 @@ script = ExtResource("1_eh7bc")
 metadata/_custom_type_script = "uid://clk34hyx5nmkm"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxController" unique_id=455042033]
-position = Vector2(0, -168)
+position = Vector2(0, -103.5)
 shape = SubResource("RectangleShape2D_4yj5u")
 
 [node name="StatsController" type="Node" parent="." unique_id=126059477]
