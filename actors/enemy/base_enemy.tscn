@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://biyf886cs63in"]
 
 [ext_resource type="Script" uid="uid://clk34hyx5nmkm" path="res://controllers/hitbox_controller.gd" id="1_eh7bc"]
+[ext_resource type="Script" uid="uid://ct2o1tctg8p5t" path="res://actors/enemy/base_enemy.gd" id="1_lgqhs"]
 [ext_resource type="Script" uid="uid://ded1ed7hmw2h0" path="res://controllers/stats_controller.gd" id="2_4yj5u"]
+[ext_resource type="Script" uid="uid://dc4ufxni2j3t3" path="res://controllers/movement_controller.gd" id="3_v4dra"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nbmsi"]
 
@@ -12,6 +14,7 @@ size = Vector2(140, 208)
 size = Vector2(140, 207)
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1379502764]
+script = ExtResource("1_lgqhs")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1559259046]
 modulate = Color(0.7210613, 0.017191716, 5.7756904e-07, 1)
@@ -35,3 +38,19 @@ shape = SubResource("RectangleShape2D_4yj5u")
 script = ExtResource("2_4yj5u")
 max_health = 50.0
 metadata/_custom_type_script = "uid://ded1ed7hmw2h0"
+
+[node name="MovementController" type="Node" parent="." unique_id=681218822]
+script = ExtResource("3_v4dra")
+metadata/_custom_type_script = "uid://dc4ufxni2j3t3"
+
+[node name="Timers" type="Node" parent="." unique_id=1820793265]
+
+[node name="IdleTimer" type="Timer" parent="Timers" unique_id=1117926792]
+one_shot = true
+autostart = true
+
+[node name="MoveTimer" type="Timer" parent="Timers" unique_id=1550703987]
+one_shot = true
+
+[connection signal="timeout" from="Timers/IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="Timers/MoveTimer" to="." method="_on_move_timer_timeout"]
