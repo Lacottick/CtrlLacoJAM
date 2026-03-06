@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var weapon: WeaponController = $WeaponController
 
 @export var character_id: int
+@export var is_dashing: bool = false
 
 func _ready():
 	character_id = get_instance_id()
@@ -23,6 +24,8 @@ func on_action(action: String):
 		animation.play_attack(used_skill)
 	if action == "switch_weapon": 
 		weapon.switch_weapon()
+	if action == "dash":
+		movement.dash()
 
 func on_hitbox_damaged(amount: float) -> void:
 	stats.take_damage(stats.character_id, amount)

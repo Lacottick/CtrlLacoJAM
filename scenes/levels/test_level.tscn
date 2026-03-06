@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://chxq6kg1aslkb" path="res://assets/Space_background.png" id="1_alwyk"]
 [ext_resource type="PackedScene" uid="uid://st4h1i4ffas4" path="res://actors/player/player.tscn" id="3_fr1um"]
 [ext_resource type="PackedScene" uid="uid://br50at6rbv0ou" path="res://scenes/level_door/door.tscn" id="3_vxsof"]
+[ext_resource type="PackedScene" uid="uid://c32si4busy7gc" path="res://objects/destructable_object.tscn" id="5_48ne7"]
 [ext_resource type="PackedScene" uid="uid://biyf886cs63in" path="res://actors/enemy/base_enemy.tscn" id="6_6xh4u"]
 
 [node name="TestLevel" type="Node2D" unique_id=770727597]
@@ -17,7 +18,7 @@ texture = ExtResource("1_alwyk")
 position = Vector2(91, 18)
 
 [node name="BaseCharacter" parent="." unique_id=1540911931 instance=ExtResource("3_fr1um")]
-position = Vector2(373, 558)
+position = Vector2(192, 439)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=493028597]
 color = Color(0.4262003, 0.31027228, 0.107836254, 1)
@@ -28,4 +29,7 @@ shadow_color = Color(4.813075e-08, 0.10421535, 0.12869826, 1)
 height = 1.0
 
 [node name="BaseEnemy" parent="." unique_id=1379502764 instance=ExtResource("6_6xh4u")]
-position = Vector2(772, 462)
+position = Vector2(1170, 496)
+
+[node name="DestructableObject" parent="." unique_id=778223441 instance=ExtResource("5_48ne7")]
+position = Vector2(458, 387)

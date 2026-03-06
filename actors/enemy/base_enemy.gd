@@ -25,20 +25,17 @@ func set_state(new_state: States) -> void:
 		States.Idle:
 			movement.set_direction(Vector2.ZERO)
 			idle_timer.start(randf_range(min_idle_time, max_idle_time))
-			print("Inimigo: Parado")
 			
 		States.Move:
 			var random_dir = get_random_direction()
 			movement.set_direction(random_dir)
 			move_timer.start(randf_range(min_move_time, max_move_time))
-			print("Inimigo: Movendo para ", random_dir)
 
 func get_random_direction() -> Vector2:
 	return Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 
 func _on_idle_timer_timeout() -> void:
 	set_state(States.Move)
-
 
 func _on_move_timer_timeout() -> void:
 	set_state(States.Idle)

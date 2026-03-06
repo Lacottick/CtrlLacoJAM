@@ -305,7 +305,7 @@ node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"MoveS
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_15y17"]
 size = Vector2(110, 254)
 
-[node name="BaseCharacter" type="CharacterBody2D" unique_id=1540911931]
+[node name="BaseCharacter" type="CharacterBody2D" unique_id=1540911931 groups=["Entities"]]
 material = SubResource("ShaderMaterial_lsln6")
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
@@ -332,6 +332,8 @@ parameters/AttackOneShot/request = 0
 
 [node name="MovementController" type="Node" parent="." unique_id=2015551705]
 script = ExtResource("2_esgq3")
+dash_speed = 900.0
+dash_duration = 0.3
 metadata/_custom_type_script = "uid://dc4ufxni2j3t3"
 
 [node name="InputController" type="Node" parent="." unique_id=571808249]

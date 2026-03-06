@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c32si4busy7gc"]
+
+[ext_resource type="Script" uid="uid://euny1dbw7ubd" path="res://objects/destructable_object.gd" id="1_13san"]
+[ext_resource type="Script" uid="uid://hu7kgb2ywt3a" path="res://objects/object_hitbox_controller.gd" id="2_13san"]
+[ext_resource type="Script" uid="uid://8u333l4f2kh2" path="res://objects/object_stats_controller.gd" id="3_ht5qw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axg71"]
+size = Vector2(89, 87)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dre2e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dre2e"]
+size = Vector2(89, 90)
+
+[node name="DestructableObject" type="StaticBody2D" unique_id=778223441]
+script = ExtResource("1_13san")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1920875044]
+shape = SubResource("RectangleShape2D_axg71")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=699914277]
+modulate = Color(0.31764707, 0.15686275, 0.08235294, 1)
+scale = Vector2(89.5, 89.5)
+texture = SubResource("CanvasTexture_dre2e")
+
+[node name="ObjectHitboxController" type="Area2D" parent="." unique_id=841327353]
+script = ExtResource("2_13san")
+metadata/_custom_type_script = "uid://hu7kgb2ywt3a"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectHitboxController" unique_id=1756928613]
+shape = SubResource("RectangleShape2D_dre2e")
+
+[node name="ObjectStatsController" type="Node" parent="." unique_id=191929145]
+script = ExtResource("3_ht5qw")
+metadata/_custom_type_script = "uid://8u333l4f2kh2"
+
+[connection signal="body_entered" from="ObjectHitboxController" to="." method="_on_object_hitbox_controller_body_entered"]

@@ -13,6 +13,7 @@ func _process(_delta: float) -> void:
 		direction_changed.emit(Vector2.ZERO)
 		return
 	
+	# Passa a direção em que o personagem deve olhar
 	var input_dir = Vector2.ZERO
 	input_dir.x = Input.get_axis("left", "right")
 	input_dir.y = Input.get_axis("up", "down")
@@ -21,6 +22,10 @@ func _process(_delta: float) -> void:
 		input_dir = input_dir.normalized()
 	
 	direction_changed.emit(input_dir)
+	
+	# Ações especiais
+	if Input.is_action_just_pressed("dash"):
+		action_performed.emit("dash")
 	
 	if Input.is_action_just_pressed("attack"):
 		action_performed.emit("attack")
